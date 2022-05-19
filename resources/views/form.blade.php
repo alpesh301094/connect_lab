@@ -307,6 +307,7 @@
                         if(res.status == true){
                             $("#employeeModel").modal('hide');
                             Swal.fire("Success!", res.message, "success");
+                            $('#employee-form')[0].reset();
                             $('#employee-table').DataTable().ajax.reload();
                         }else{
                             Swal.fire("Failed!", res.message, "error");
@@ -336,6 +337,7 @@
         })
 
         $(document).on('click','#addModel',function(){
+            $("#employee-form").validate().resetForm();
             $("#employeeModel").modal('show');
         })
     </script>
