@@ -22,5 +22,3 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Clear Config
       run: php artisan config:clear
-    - name: Run Migration
-      run: php artisan migrate
