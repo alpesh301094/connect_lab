@@ -22,3 +22,13 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Clear Config
       run: php artisan config:clear
+    - name: Deployment
+      uses: appleboy/ssh-action@main
+      with:
+        host: ${{ secrets.HOST }}
+        key: ${{ secrets.SSHKEY }}
+        username: ${{ secrets.USERNAME }}
+        script: |
+          cd /var/www/connect_lab/
+          git checkout -f 
+          git pull
