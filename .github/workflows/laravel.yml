@@ -23,7 +23,7 @@ jobs:
     - name: Clear Config
       run: php artisan config:clear
     - name: Deployment
-      uses: ./.github/workflows/laravel.yml
+      uses: ./
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.SSHKEY }}
